@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50162
 File Encoding         : 65001
 
-Date: 2019-10-21 17:55:48
+Date: 2019-10-21 18:07:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,8 +39,8 @@ CREATE TABLE `blogs_body` (
 DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `comments` mediumtext,
-  `blogs_id` int(11) DEFAULT NULL,
+  `comments` mediumtext COMMENT '评论',
+  `blogs_id` int(11) DEFAULT NULL COMMENT '文章id',
   `user_id` int(11) DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   `create_date_time` datetime DEFAULT NULL,
@@ -95,20 +95,20 @@ CREATE TABLE `sys_user` (
 DROP TABLE IF EXISTS `tb_third_post`;
 CREATE TABLE `tb_third_post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `third_type` varchar(255) DEFAULT NULL,
-  `third_name` varchar(255) DEFAULT NULL,
-  `object_id` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `tags` varchar(255) DEFAULT NULL,
-  `author` varchar(255) DEFAULT NULL,
-  `content` longtext,
-  `like_num` int(11) DEFAULT NULL,
-  `comment_num` int(11) DEFAULT NULL,
-  `redirect_url` varchar(255) DEFAULT NULL,
-  `creatime` datetime DEFAULT NULL,
+  `third_type` varchar(255) DEFAULT NULL COMMENT '第三方类型',
+  `third_name` varchar(255) DEFAULT NULL COMMENT '来源名称',
+  `object_id` varchar(255) DEFAULT NULL COMMENT '来源id',
+  `title` varchar(255) DEFAULT NULL COMMENT '文章名称',
+  `tags` varchar(255) DEFAULT NULL COMMENT '标签',
+  `author` varchar(255) DEFAULT NULL COMMENT '作者',
+  `content` longtext COMMENT '文章主体',
+  `like_num` int(11) DEFAULT NULL COMMENT '喜欢数',
+  `comment_num` int(11) DEFAULT NULL COMMENT '评论数',
+  `redirect_url` varchar(255) DEFAULT NULL COMMENT '回调地址',
+  `creatime` datetime DEFAULT NULL COMMENT '创建时间',
   `can_analysis` varchar(255) DEFAULT NULL,
-  `created_at` varchar(255) DEFAULT NULL,
-  `weigh` int(11) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
+  `created_at` varchar(255) DEFAULT NULL COMMENT '本地创建时间',
+  `weigh` int(11) DEFAULT NULL COMMENT '权重值',
+  `type` varchar(255) DEFAULT NULL COMMENT '文章类型 转载，原创',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51636 DEFAULT CHARSET=utf8;
