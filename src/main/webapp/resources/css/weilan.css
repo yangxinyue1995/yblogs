@@ -1,0 +1,116 @@
+body{
+font-size:12px; font-family:"微软雅黑","宋体",Arial, Helvetica, sans-serif;color:#363636;background:#e5e5e5 url(images/bg.jpg) center top no-repeat;}
+html, body, div, span, h1, h2, h3, h4, h5, h6, em, img, strong, sub, sup, tt,dd, dl, dt, form, label, table, caption, tbody, tfoot, thead, tr, th, td,ul,li,p,a{ margin: 0; padding: 0;  }
+.cbody{ margin:0 auto;width:982px; position:relative;background:#FFF;}
+input,select,textarea{ vertical-align:middle;}
+img{ border:0;}
+ul,li{ list-style-type:none;}
+a:link,a:visited{
+text-decoration:none;color:#010101;}
+a:hover{text-decoration:underline;color:#ED0909;}
+.overhide{overflow:hidden;text-indent:-100em; }
+.clear {clear: both;}
+.clearfix:after {clear: both;content: ' ';display: block;font-size: 0;line-height: 0;visibility: hidden;width: 0;height: 0;}
+.clearfix{zoom:1} 
+
+/*banner start*/
+.weilan{
+	width:990px;
+	height:250px;
+	margin:0 auto;
+}
+.header{
+	width:990px;
+	height:109px;
+	position: relative;
+}
+.banner{
+	width:954px;
+	height:111px;
+	background-color:#85b2fe;
+	padding:9px 18px 0;
+}
+.nav{
+	background-color:#0b66fd;
+	width:954px;
+	height:31px;
+	margin-left:18px;
+	float:left;
+}
+.nav ul{
+	padding:8px 0 3px 35px;
+}
+.nav ul li{
+	float:left;
+	display:inline-block;
+	margin-right:10px;
+	border-right:1px dashed #fff;
+}
+.nav ul li a{
+	color:#fff;
+	font-size:15px;
+	padding: 0 15px 5px 5px;
+}
+.img_roll{
+	width:990px;
+	height:270px;
+	background-color:#85b2fe;
+	float:left;
+}
+.content_left{
+	width:78%;
+	height:500px;
+	background-color:;
+	margin-top:10px;
+	position:relative;
+	overflow:hidden;
+}
+.len{
+	width:98%;
+	height:13px;
+	position:absolute;
+	top:0;
+}
+.len span{
+	margin-left:18px;
+	background-color:#85b2fe;
+	height:13px;
+	width:100%;
+	display:inline-block;
+	}
+.content_subleft{
+	width:100%;
+	height:240px;
+	background-color:#85b2fe;
+	position:absolute;
+	left:0;
+	top:13px;
+	}
+.content_left_in{
+	width:98%;
+	height:240px;
+	position:absolute;
+	top:10px;
+	left:18px;
+	background-color:#fff;
+}
+.contact {
+	position: absolute;
+	width: 180px;
+	height: 28px;
+	right: 20px;
+	top: 122px;
+	background-image: url(../images/contact_bg.png);
+}
+.contact li{
+	float: left; 
+	width: 72px;
+}
+.contact li:nth-child(1){
+	border-right: 2px dashed #fff;
+}
+.contact li a{
+	color: #fff;
+	font-size: 15px;
+
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.org.blogs.mapper.CommentsMapper">
+	<resultMap id="BaseResultMap" type="com.org.blogs.entity.Comments">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="comments" property="comments" jdbcType="VARCHAR" />
+		<result column="blogs_id" property="blogsId" jdbcType="INTEGER" />
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="create_date_time" property="createDateTime" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="getCommentsByBlogsId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		SELECT
+		*
+		FROM
+		comments
+		where blogs_id = #{blogsId}
+		order by create_date_time
+	</select>
+
+	<insert id="saveComments" keyProperty="id" keyColumn="id"
+			useGeneratedKeys="true">
+		insert into comments
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="comments != null">
+				comments,
+			</if>
+			<if test="blogsId != null">
+				blogs_id,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="userName != null">
+				user_name,
+			</if>
+			<if test="createDateTime != null">
+				create_date_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="comments != null">
+				#{comments,jdbcType=VARCHAR},
+			</if>
+			<if test="blogsId != null">
+				#{blogsId,jdbcType=INTEGER},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="userName != null">
+				#{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="createDateTime != null">
+				#{createDateTime,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+</mapper>

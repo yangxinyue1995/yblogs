@@ -1,0 +1,161 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+body {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    margin: 0 auto;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+a img {
+    border: medium none;
+}
+ul li {
+    list-style: none outside none;
+}
+.clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+}
+.pic {
+    width:100%;
+	height:auto;
+	margin:0px;	
+	
+	}
+.pic  h2{
+	margin-bottom:0px;
+	border:1px solid #ccc;
+	border-bottom:2px #ccc solid;
+	margin-top:0px;
+	
+    width:950px !important;
+    width: 980px;
+     padding: 6px 15px;
+	font-family: '微软雅黑';
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 22px;
+}	
+h6{
+   font:normal 14px/1.5 "黑体";	
+   width:100%;
+    padding-top:10px ;
+   height:26px !important;
+   height:36px;
+   
+   background:url(../images/h6_bg.png) bottom repeat-x;
+	}	
+	.lab{
+	   width:980px;
+	   height:16px;
+	   cursor:pointer;
+	   display:block;
+	   margin:0px auto;
+	   
+		}
+.picdo{
+    width:980px;
+	margin:0px auto;
+	height:auto;	
+	
+	}	
+.picture_top{
+    width:273px;
+	height:auto;
+	float:left;
+	padding-top:12px;
+	margin-left:40px;
+	margin-top:10px;
+	background:url(../images/top.png) no-repeat;	
+	}	
+.picture i{
+  padding-left:6px;
+  display:block;
+  margin-top:-5px;
+  font:italic 18px/1.5 "宋体";
+  color:#3cf2ec;
+}
+.picture{
+    width:273px;
+	height:auto;	
+	background:url(../images/pic_bg.png) repeat-y;
+	}	
+.picture_bottom{
+    width:273px;
+	height:auto;	
+	position:relative;
+	background:url(../images/bottom.png)  bottom center no-repeat;
+	}	
+.picture_bottom img{
+	width:240px;
+	height:auto;
+	margin:0px auto;
+	}	
+.pic h6 a{
+	text-decoration:none;
+	color:#333333;	
+	padding:0px 3px;
+	}
+
+.pic h6 a:hover{
+	
+	color:#15c211;	
+	}
+.pic01{
+    width:240px;
+	margin:0px auto;
+	display:block;	
+	}
+.pic01 h5{
+    border-top:1px #fff groove;
+   font:normal 14px/1.5 "黑体";
+   color:#666;
+   padding:4px;
+   margin-top:10px;
+   height:32px;	
+	}	
+.pic01 img,.pic01 embed{
+	  width:240px;
+	height:160px;
+} 	
+.pic_con{
+    border:1px solid #ccc;
+	padding:10px;
+	 background:#eee;	
+	}	
+.pic_con01{
+	width:810px;
+	display:block;
+	border:10px solid #fff;
+	margin:0px auto;
+	background:#fff;
+	}	
+.pic_con01 img{
+   width:810px;	
+	}	
+.pic_con01 h5{
+    border-top:1px #999 solid;
+   font:normal 14px/1.5 "黑体";
+   color:#666;
+   
+   padding:4px;
+   margin-top:10px;
+   height:32px;	
+	}		
+	  .red{
+   color:red;
+     font:normal 14px/1.5 Times, TimesNR, 'New Century Schoolbook';
+    vertical-align:super;
+  }
+ .yellow{
+   font:normal 14px/1.5 Times, TimesNR, 'New Century Schoolbook';
+    vertical-align:super;
+    color:#3ef;
+  } 

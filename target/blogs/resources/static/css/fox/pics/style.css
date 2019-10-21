@@ -1,0 +1,180 @@
+
+#backlinks{
+	float:right;
+	padding:0 20px;
+	line-height:22px;
+	font-weight:bold;
+	font-size:13px;
+}
+#backlinks a{
+	text-align:right;
+	display:block;
+}
+.coral_logo span{padding:2px 8px;border-radius:40px;}
+.coral_logo span:hover,.coral_logo span:hover a{background:#fff;color:#c60;}
+.coral_logo .active,.coral_logo .active a{background:#fff;color:#c60;}
+/* clearfix */
+.coral_logo {text-align: center;height: 60px;background: url(images/coral_logo_24.png)/*tpa=http://www.fanjianzhi.net/static/css/fox/pics/images/coral_logo_24.png*/ center top no-repeat;}
+/* wrapper css */
+#wrapper{
+	width:100%;min-height:500px;
+}
+#wrapper hgroup{
+	text-align:center;
+}
+#wrapper h2{
+	margin:5px 0;
+	color:#FF6D99;
+	text-shadow:1px 1px 2px #A50031;
+	font-size:33px;
+	font-family:Arial Narrow, Arial, sans-serif;
+}
+#wrapper h3{
+	font-style:italic;
+	font-weight:normal;
+	font-size:18px;
+	text-shadow:1px 1px 0 #fff;
+	color:#888;
+	margin:5px 0;
+}
+
+#containerpub{
+	position:relative;
+	width:1000px;
+	margin:0 auto 25px;
+	padding-bottom: 10px;
+	
+}
+.grid{
+	width:300px;
+	min-height:100px;
+	background:#fff;
+	margin:0 25px;
+	font-size:12px;
+	float:left;
+	border:10px solid #fff;
+	box-shadow: 0 2px 3px rgba(234,225,25,0.4);
+	-moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-webkit-transition: top 1s ease, left 1s ease;
+	-moz-transition: top 1s ease, left 1s ease;
+	-o-transition: top 1s ease, left 1s ease;
+	-ms-transition: top 1s ease, left 1s ease;
+	border-radius: 4px;
+	z-index:999;
+}
+.grid .listbox{
+	padding: 10px;
+}
+.grid .gridimgbox {position:relative;}
+.grid .gridimgbox img {
+width: 320px;
+border-radius: 3px 3px 0 0;
+_width: 318px;
+width: 318px\9;
+width: 320px\9\0;
+}
+.grid .aw-user-name img{width:18px;height:18px;border-radius: 50px;}
+.link-overlay{position:absolute;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,0);-webkit-transition:background-color 0.2s ease;transition:background-color 0.2s ease}
+.link-overlay:before{display:block;width:30px;height:30px;position:absolute;top:50%;left:50%;margin:-18px 0 0 -14px;border-radius:50%;background:transparent;text-align:center;font:14px/30px;transform:scale(0.8);opacity:0;-webkit-transition:opacity 0.2s ease;transition:opacity 0.2s ease;text-decoration:none;box-shadow:0px 0px 0px 4px rgba(255,255,255,1);color:#fff}
+.grid strong {
+	border-bottom:1px solid #ccc;
+	margin:10px 0;
+	display:block;
+	padding:0 0 5px;
+	font-size:17px;
+}
+.grid .spanb_a{font-weight:normal;border-radius: 4px;font-size:14px;}
+.grid .spanb_b{font-weight:normal;border-radius: 4px;font-size:14px;}
+.grid .spanb_c{font-weight:normal;border-radius: 4px;font-size:14px;}
+.grid .spanb_d{font-weight:normal;border-radius: 4px;font-size:14px;}
+.grid .spanb_e{font-weight:normal;border-radius: 4px;font-size:14px;}
+.grid .meta{
+	text-align:right;
+	color:#777;
+	font-style:italic;
+}
+.grid .imgholder img{
+	max-width:100%;
+	background:#ccc;
+	display:block;
+	background:url(images/loding.gif)/*tpa=http://www.fanjianzhi.net/static/css/fox/pics/images/loding.gif*/ no-repeat center;
+}
+.grid .targetpost {
+margin-top: 0px;
+overflow: hidden;
+}
+.grid  .title_box{position:relative;zoom:1;width:100%;border:1px solid #E3E3E3;background:#E8E8E8;
+    margin: 5px 0 0 0;font-size:14px;font-family: inherit;text-align:center;
+    font-weight: 500;
+    height: 35px;line-height: 35px;overflow:hidden;}
+.grid  li.post .post-content .headImg img{border-radius:5px;width:40px;height:40px}
+.grid  li.post .post-content .headImg {float: left;margin:5px 10px 5px 0;border-radius: 4px;}
+.grid  li.post .post-content .uptime {color: #999;font-size: 12px;display: inline-block;padding-left: 8px;}
+.grid .post-content .publisher {font-size: 12px;color: #2E5BA2;font-weight: bold;}
+.grid .post-content .publisher  a{font-size: 12px;color: #2E5BA2;font-weight: bold;}
+.grid .popClick {cursor: pointer;}
+.grid .post-content {line-height: 24px;}
+.grid .mark{ background:url(images/jia.png)/*tpa=http://www.fanjianzhi.net/static/css/fox/pics/images/jia.png*/ no-repeat center center #000;opacity:0.7; display:none; width:100%; height:100%; position:absolute; left:0; top:0; z-index:15; text-indent:-3000px; overflow:hidden;filter:alpha(opacity=0.7);}
+
+@media screen and (max-width : 1240px) {
+	body{
+		overflow:auto;
+	}
+}
+@media screen and (max-width : 800px) {
+	#backlinks{
+		float:none;
+		clear:both;
+	}
+	.grid{width: 33.333%;}
+	#backlinks a{
+		display:inline-block;
+		padding-right:20px;
+	}
+}
+.picbox{width:100%;text-align:center;padding:20px 0;overflow:hidden;position:relative;opacity: 1;
+animation:myfirst 5s 3s ease;/* Firefox: */
+-moz-animation:myfirst 3s ease;/* Safari and Chrome: */
+-webkit-animation:myfirst 3s ease;/* Opera: */
+-o-animation:myfirst myfirst 3s ease;}
+.textbox{width:100%;padding:20px;overflow:hidden;}
+.picbox img{max-width:100%;border:8px solid #393A44;}
+.textbox h1{font-size:20px;border-bottom:1px solid #ddd;font-weight:500;}
+.textbox h2{margin-top:20px;font-size:16px;border-bottom:1px solid #ddd;font-weight:500;}
+.textbox i{font-size:14px;margin-right:8px;color:#6D89BB;}
+.textbox li{list-style:none;line-height:30px;}
+.textbox li a{color:#6D89BB;}.textbox li a:hover{color:#336699;font-weight:600;}
+.textbox li .aw-user-name-o img{width:20px;height:20px;border-radius:40px;margin-right:10px;}
+.textbox li a.btn,.textbox li a.btn:hover,.textbox li a.btn i {color:#fff;font-weight:400;}
+@keyframes myfirst
+{
+0%   {opacity: 0.4;}
+25%  {opacity: 0.6;}
+50%  {opacity: 0.8;}
+100% {opacity: 1;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+0%   {opacity: 0.4;}
+25%  {opacity: 0.6;}
+50%  {opacity: 0.8;}
+100% {opacity: 1;}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+0%   {opacity: 0.4;}
+25%  {opacity: 0.6;}
+50%  {opacity: 0.8;}
+100% {opacity: 1;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+0%   {opacity: 0.4;}
+25%  {opacity: 0.6;}
+50%  {opacity: 0.8;}
+100% {opacity: 1;}
+}

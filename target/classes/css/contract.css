@@ -1,0 +1,40 @@
+body
+{
+	width:100%;
+	height:1224px;
+}
+h1
+{
+	text-align:center;
+}
+.contract
+{
+	width:60%;
+	height:120%;
+	margin:20px auto;
+    margin:0 auto;
+    clear:both;
+}
+.segment
+{
+	text-indent:30px
+}
+.content
+{
+	width:90%; 
+	height:640px;
+	margin:0 auto；
+}
+.bottom
+{
+	width:90%;
+	margin:0 auto;
+	text-align:center;
+}
+.align-left {
+                float: left;
+                }
+				
+.align-right {
+                float: right;
+                }

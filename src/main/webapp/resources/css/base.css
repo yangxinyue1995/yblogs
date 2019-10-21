@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+fieldset {
+	padding: 5px;
+	border: 1px solid #cccccc;
+}
+
+legend {
+	border: 0;
+	padding: 0;
+	font-size: 12px;
+}
+
+.scroll-wrapper {
+	-webkit-overflow-scrolling: touch;
+	overflow-y: scroll;
+	/* 提示: 请在此处加上需要设置的大小(dimensions)或位置(positioning)信息! */
+	/* position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	top: 0; */
+}
+
+.scroll-wrapper>iframe {
+	/* 你自己指定的样式 */
+	height: 100%;
+	width: 100%;
+}

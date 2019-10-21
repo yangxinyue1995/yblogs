@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.org.blogs.mapper.UserInfoMapper">
+	<resultMap id="BaseResultMap" type="com.org.blogs.entity.UserInfo">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="userName" property="userName" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="mobile" property="mobile" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="sex" property="sex" jdbcType="INTEGER" />
+		<result column="create_date_time" property="createDateTime" jdbcType="VARCHAR" />
+		<result column="user_img_url" property="userImgUrl" jdbcType="VARCHAR" />
+		<result column="user_sign" property="userSign" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,
+		userName,
+		password,
+		email,
+		mobile,
+		status,
+		sex,
+		create_date_time,
+		user_img_url,
+		user_sign
+	</sql>
+	<select id="selectByid" resultMap="BaseResultMap"
+		parameterType="com.org.blogs.entity.UserInfo">
+		select
+		<include refid="Base_Column_List" />
+		from sys_user
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<select id="selectByCode" resultMap="BaseResultMap"
+		parameterType="com.org.blogs.entity.UserInfo">
+		select
+		<include refid="Base_Column_List" />
+		from sys_user
+		where userCode = #{code}
+	</select>
+	<delete id="deleteByid" parameterType="java.lang.Integer">
+		delete from
+		sys_user
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<select id="selectAll" parameterType="com.org.blogs.entity.UserInfo">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		sys_user
+	</select>
+
+	<select id="selectByUserNameAndPassWord" parameterType="java.lang.String" resultType="com.org.blogs.entity.UserInfo">
+		SELECT
+		*
+		FROM
+		sys_user where username = #{0}  and password= #{1}
+	</select>
+
+	<select id="selectUserNameForLogin" parameterType="java.lang.String" resultType="com.org.blogs.entity.UserInfo">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		sys_user where username = #{0}
+	</select>
+
+	<insert id="insertUser">
+		insert into sys_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userName != null">
+				username,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+			<if test="createDateTime != null">
+				create_date_time,
+			</if>
+			<if test="userImgUrl != null">
+				user_img_url,
+			</if>
+			<if test="userSign != null">
+				userSign,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userName != null">
+				#{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=INTEGER},
+			</if>
+			<if test="createDateTime != null">
+				#{createDateTime,jdbcType=VARCHAR},
+			</if>
+			<if test="userImgUrl != null">
+				#{userImgUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="userSign != null">
+				#{userSign,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+</mapper>

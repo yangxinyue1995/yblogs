@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.org.blogs.mapper.GaoXiaoMapper">
+	<resultMap id="BaseResultMap" type="com.org.blogs.entity.GaoXiao">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="img_name" property="imgName" jdbcType="VARCHAR" />
+		<result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,
+		img_name,
+		img_url
+	</sql>
+	<select id="getList" parameterType="com.org.blogs.util.PageRoll" resultMap="BaseResultMap">
+		SELECT
+		*
+		FROM
+		gaoxiao_images
+		order by rand()
+		LIMIT ${params.startRow},${params.rowNum}
+	</select>
+</mapper>

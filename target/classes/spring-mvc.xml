@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
+	<!-- 默认的注解映射的支持 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+			<bean id="fastJsonHttpMessageConverter"
+				class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+				<property name="features">
+					<!--这个地方加上这个功能吧，能自己配置一些东西，比如时间的格式化，null输出""等等 -->
+					<array>
+						<!-- list字段如果为null，输出为[]，而不是null -->
+						<value>WriteNullListAsEmpty</value>
+						<!-- 数值字段如果为null，输出为0，而不是null -->
+						<value>WriteNullNumberAsZero</value>
+						<!-- 日期格式化处理 输出 2014-12-24 13:47:03 -->
+						<value>WriteDateUseDateFormat</value>
+						<!-- 字符类型字段如果为null，输出为""，而不是null -->
+						<value>WriteNullStringAsEmpty</value>
+					</array>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- 控制层自动扫描的包名 -->
+	<context:component-scan base-package="com.org.blogs.web" >
+	    <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	    <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+	    <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<property name="maxUploadSize">
+		 <value>10500000</value><!-- 上传文件总大小限制为10M，10*1024*1024 -->  
+		</property>
+	</bean>
+
+	<!-- 拦截器-->
+		<mvc:interceptors>
+			<!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
+			<!-- <bean class="com.wjh.interceptor.LoginInterceptor"/> -->
+
+			<!-- 配置用于跳回登录之前的页面的拦截器-->
+			<mvc:interceptor>
+				<!-- 进行拦截：/**表示拦截所有url及其子路径 -->
+				<mvc:mapping path="/**" />
+				<!-- 首页不进行拦截 -->
+				<mvc:exclude-mapping path="" />
+				<mvc:exclude-mapping path="index.jsp" />
+				<!-- 登录注册不进行拦截 -->
+				<mvc:exclude-mapping path="/admin/managerLoginDo" />
+				<mvc:exclude-mapping path="/frontPages/login" />
+				<mvc:exclude-mapping path="/frontPages/resiger" />
+				<mvc:exclude-mapping path="/admin/resiger" />
+
+				<!-- ajax请求的action不进行拦截 -->
+				<mvc:exclude-mapping path="/*.ajax" />
+
+				<mvc:exclude-mapping path="/js/**" />
+				<mvc:exclude-mapping path="/jslib/**" />
+				<mvc:exclude-mapping path="/css/**" />
+				<mvc:exclude-mapping path="/resources/**" />
+				<mvc:exclude-mapping path="/resources/img/**" />
+
+				<bean class="com.org.blogs.interceptor.ForwardBeforeLoginInteceptor" />
+
+			</mvc:interceptor>
+			<!-- 防止用户未登录就对个人信息进行非法访问的拦截器 -->
+		</mvc:interceptors>
+	<!-- 拦截器end-->
+
+
+	<!-- 视图解释类 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" /><!--扩展名选择视图解释类的逻辑 -->
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+	</bean>
+	
+	 <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!-- 指定所有没有指定的异常,都跳转到该页面 -->
+		 <property name="exceptionMappings">
+			 <props>
+				 <prop key="java.lang.Throwable">/500</prop>
+			 </props>
+		 </property>
+		 <property name="statusCodes">
+			 <props>
+				 <prop key="500">500</prop>
+				 <prop key="404">404</prop>
+			 </props>
+		 </property>
+		 <!-- 设置日志输出级别，不定义则默认不输出警告等错误日志信息 -->
+		 <property name="warnLogCategory" value="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"/>
+		 <!-- 默认错误页面，当找不到上面mappings中指定的异常对应视图时，使用本默认配置 -->
+		 <property name="defaultErrorView" value="error/500"/>
+		 <!-- 默认HTTP状态码 ，返回错误默认设置的状态码-->
+		 <property name="defaultStatusCode" value="200"/>
+		 <!-- 跳转时携带异常对象 -->
+        <property name="exceptionAttribute" value="ex"></property>
+    </bean> 
+
+	<!-- 对静态资源文件的访问 -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/upload/**" location="/upload/" />
+
+	<!-- 默认首页 得到的结果是 /login.jsp -->
+	<mvc:view-controller path="/" view-name="/index" />
+	
+</beans> 
